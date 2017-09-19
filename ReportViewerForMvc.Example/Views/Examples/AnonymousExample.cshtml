@@ -1,0 +1,42 @@
+﻿@using ReportViewerForMvc;
+@using System.Web.UI.WebControls;
+
+@{
+    ViewBag.Title = "Anonymous Example";
+}
+
+<h2>AnonymousExample</h2>
+
+@{
+    List<object> dataList = new List<object>();
+    var data = new
+    {
+        Dept = "Document Control",
+        Shift = "Day",
+        EmployeeID = "1"
+    };
+    dataList.Add(data);
+}
+
+@Html.ReportViewer(
+    new
+    {
+        ProcessingMode = 0, //ProcessingMode.Local
+        SizeToReportContent = true,
+        Width = Unit.Percentage(100),
+        Height = Unit.Percentage(100)
+    },
+    new
+    {
+        ReportPath = Request.MapPath(Request.ApplicationPath) + @"Reports\LocalReportExample.rdlc"
+    },
+    new
+    {
+        ReportTitle = "Local Report Example"
+    },
+    new
+    {
+        Name = "dsLocalReport",
+        Value = dataList
+    },
+    null)

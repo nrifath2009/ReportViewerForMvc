@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30110.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportViewerForMvc.Example", "ReportViewerForMvc.Example\ReportViewerForMvc.Example.csproj", "{F239E560-E292-48B9-B937-9D0CFF12C884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportViewerForMvc", "ReportViewerForMvc\ReportViewerForMvc.csproj", "{B7F6A951-ECE3-4BDD-BE20-0F7FFD944695}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReportViewerForMvc.Tests", "ReportViewerForMvc.Tests\ReportViewerForMvc.Tests.csproj", "{8133D27D-C746-434E-A733-9BC8965A6073}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs26
+		SccProjectUniqueName0 = ReportViewerForMvc\\ReportViewerForMvc.csproj
+		SccProjectName0 = ReportViewerForMvc
+		SccLocalPath0 = ReportViewerForMvc
+		SccProjectUniqueName1 = ReportViewerForMvc.Example\\ReportViewerForMvc.Example.csproj
+		SccProjectName1 = ReportViewerForMvc.Example
+		SccLocalPath1 = ReportViewerForMvc.Example
+		SccProjectUniqueName2 = ReportViewerForMvc.Tests\\ReportViewerForMvc.Tests.csproj
+		SccProjectName2 = ReportViewerForMvc.Tests
+		SccLocalPath2 = ReportViewerForMvc.Tests
+		SccLocalPath3 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F239E560-E292-48B9-B937-9D0CFF12C884}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F239E560-E292-48B9-B937-9D0CFF12C884}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F239E560-E292-48B9-B937-9D0CFF12C884}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F239E560-E292-48B9-B937-9D0CFF12C884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7F6A951-ECE3-4BDD-BE20-0F7FFD944695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7F6A951-ECE3-4BDD-BE20-0F7FFD944695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7F6A951-ECE3-4BDD-BE20-0F7FFD944695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7F6A951-ECE3-4BDD-BE20-0F7FFD944695}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8133D27D-C746-434E-A733-9BC8965A6073}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8133D27D-C746-434E-A733-9BC8965A6073}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8133D27D-C746-434E-A733-9BC8965A6073}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8133D27D-C746-434E-A733-9BC8965A6073}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
