@@ -13,7 +13,7 @@
     <copyright>Copyright 2014</copyright>
     <tags>ReportViewer MVC Report Viewer Reports SSRS HtmlHelper HtmlHelpers Reporting</tags>
     <dependencies>
-      <dependency id="MicosoftReportViewerWebForms_v11" version="1.0.1" />
+      <dependency id="Microsoft.Report.Viewer" version="11.0.0" />
     </dependencies>
   </metadata>
 </package>

@@ -4,6 +4,7 @@ using System.Web;
 using System.Web.Mvc;
 using HtmlAgilityPack;
 using Microsoft.Reporting.WebForms;
+using System.IO;
 
 namespace ReportViewerForMvc.Tests
 {
@@ -18,6 +19,8 @@ namespace ReportViewerForMvc.Tests
         [TestMethod]
         public void ReportViewer_WellFormedIframe()
         {
+            MockHttpContext();
+
             HtmlString htmlString;
 
             htmlString = htmlHelper.ReportViewer(testData.ReportViewerTests);
@@ -55,6 +58,8 @@ namespace ReportViewerForMvc.Tests
         [TestMethod]
         public void ReportViewer_WithAnonymousLocalReport()
         {
+            MockHttpContext();
+
             HtmlString htmlString;
 
             htmlString = htmlHelper.ReportViewer(
@@ -79,6 +84,8 @@ namespace ReportViewerForMvc.Tests
         [TestMethod]
         public void ReportViewer_WithAnonymousServerReport()
         {
+            MockHttpContext();
+
             HtmlString htmlString;
 
             htmlString = htmlHelper.ReportViewer(
@@ -192,6 +199,14 @@ namespace ReportViewerForMvc.Tests
                 var propertyValue = property.GetValue(TestData.HtmlAttributes);
                 Assert.AreEqual(propertyValue, iframeResult.GetAttributeValue(property.Name, null));
             }
+        }
+
+        private void MockHttpContext()
+        {
+            HttpContext.Current = new HttpContext(
+                new HttpRequest("", "http://tempuri.org", ""),
+                new HttpResponse(new StringWriter())
+            );
         }
 
         #endregion
