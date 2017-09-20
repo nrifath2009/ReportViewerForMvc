@@ -2,15 +2,15 @@
 <package >
   <metadata>
     <id>ReportViewerForMvc</id>
-    <version>1.0.1</version>
+    <version>1.1.1</version>
     <title>ReportViewer for MVC</title>
     <authors>Armando Aguirre</authors>
     <owners>Armando Aguirre</owners>
-    <licenseUrl>https://reportviewerformvc.codeplex.com/license</licenseUrl>
-    <projectUrl>https://reportviewerformvc.codeplex.com/</projectUrl>
+    <licenseUrl>https://github.com/armanio123/ReportViewerForMvc/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/armanio123/ReportViewerForMvc</projectUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <description>ReportViewer for MVC is a .NET project that make possible to use an ASP.NET ReportViewer control into an MVC web application. It provides a set of HTML Helpers and a simple ASP.NET Web Form for displaying the ReportViewer within an auto-resized iframe tag.</description>
-    <copyright>Copyright 2014</copyright>
+    <copyright>Copyright (c) 2014 Armando Aguirre Sepulveda</copyright>
     <tags>ReportViewer MVC Report Viewer Reports SSRS HtmlHelper HtmlHelpers Reporting</tags>
     <dependencies>
       <dependency id="Microsoft.Report.Viewer" version="11.0.0" />
