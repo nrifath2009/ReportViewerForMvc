@@ -22,7 +22,7 @@ PM> Install-Package ReportViewerForMvc
 
 After installing, the simplest solution is to setup the report on the controller and render it on the view.
 
-The example below, will configure a report on localhost and auto-resize it. Check more details on the [Getting Started](wiki/Getting-Started) page.
+The example below, will configure a report on localhost and auto-resize it. Check more details on the [Getting Started](https://github.com/armanio123/ReportViewerForMvc/wiki/Getting-Started) page.
 
 Controller:
 
@@ -51,4 +51,4 @@ View:
 
 ## More info
 
-Check the [Wiki](wiki) for the project.
+Check the [Wiki](https://github.com/armanio123/ReportViewerForMvc/wiki) for the project.
