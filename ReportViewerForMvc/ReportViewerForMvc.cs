@@ -1,5 +1,7 @@
 ﻿using Microsoft.Reporting.WebForms;
 using System;
+using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Web;
 
 namespace ReportViewerForMvc
@@ -9,19 +11,26 @@ namespace ReportViewerForMvc
     /// </summary>
     public static class ReportViewerForMvc
     {
-        internal static string IframeId { get; set; }
+        private static ConcurrentDictionary<string,ReportViewer> reportViewerDictionary = new ConcurrentDictionary<string, ReportViewer>();
 
-        private static ReportViewer reportViewer;
-        internal static ReportViewer ReportViewer
+        internal static ReportViewer ReportViewer(string ID)
         {
-            get { return reportViewer; }
-            set
-            {
-                //TODO: Implement dynamic ID
-                reportViewer = value;
-                reportViewer.ID = "ReportViewer1";
-            }
+            return reportViewerDictionary[ID];
         }
+        internal static void ReportViewer(string ID, ReportViewer reportViewer)
+        {
+            reportViewerDictionary.TryAdd(ID, reportViewer);
+        }
+
+        internal static ReportViewer Remove(string ID)
+        {
+            ReportViewer reportViewer;
+
+            if (reportViewerDictionary.TryRemove(ID, out reportViewer))
+                return reportViewer;
+            return null;
+        }
+
 
         internal static HtmlString GetIframe(ReportViewer reportViewer, object htmlAttributes)
         {
@@ -30,7 +39,9 @@ namespace ReportViewerForMvc
                 throw new ArgumentNullException("reportViewer", "Value cannot be null.");
             }
 
-            ReportViewerForMvc.ReportViewer = reportViewer;
+            var dynamicID = (string)htmlAttributes.GetType().GetProperty("DynamicID").GetValue(htmlAttributes, null);
+
+            ReportViewer(dynamicID, reportViewer);
             return IframeBuilder.Iframe(htmlAttributes);
         }
 

@@ -39,7 +39,7 @@ namespace ReportViewerForMvc.Example.Controllers
             reportViewer.ServerReport.SetParameters(GetParametersServer());
 
             ViewBag.ReportViewer = reportViewer;
-
+            ViewBag.DynamicID = Guid.NewGuid().ToString();
             return View();
         }
 
@@ -67,6 +67,7 @@ namespace ReportViewerForMvc.Example.Controllers
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsLocalReport", tds.Tables[0]));
             reportViewer.LocalReport.SetParameters(GetParametersLocal());
 
+            ViewBag.DynamicID = Guid.NewGuid().ToString();
             ViewBag.ReportViewer = reportViewer;
         }
 

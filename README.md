@@ -38,6 +38,7 @@ var reportViewer = new ReportViewer()
 reportViewer.ServerReport.ReportPath = "/ReportFolder/SampleReport";
 reportViewer.ServerReport.ReportServerUrl = new Uri("http://localhost/ReportServer/");
 
+ViewBag.DynamicID = Guid.NewGuid().ToString();
 ViewBag.ReportViewer = reportViewer;
 ```
 
@@ -46,7 +47,7 @@ View:
 ```C#
 @Html.ReportViewer(
     ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer, 
-    new { scrolling = "no" })
+    new { scrolling = "no" , DynamicID = ViewBag.DynamicID})
 ```
 
 ## More info
