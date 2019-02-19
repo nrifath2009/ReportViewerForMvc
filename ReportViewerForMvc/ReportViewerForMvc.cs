@@ -12,21 +12,21 @@ namespace ReportViewerForMvc
     public static class ReportViewerForMvc
     {
         private static ConcurrentDictionary<string,ReportViewer> reportViewerDictionary = new ConcurrentDictionary<string, ReportViewer>();
-
+        private const string _staticKey = "static";
         internal static ReportViewer ReportViewer(string ID)
         {
-            return reportViewerDictionary[ID];
+            return reportViewerDictionary[ID ?? _staticKey];
         }
         internal static void ReportViewer(string ID, ReportViewer reportViewer)
         {
-            reportViewerDictionary.TryAdd(ID, reportViewer);
+            reportViewerDictionary.TryAdd(ID ?? _staticKey, reportViewer);
         }
 
-        internal static ReportViewer Remove(string ID)
+        internal static ReportViewer Remove(string ID )
         {
             ReportViewer reportViewer;
 
-            if (reportViewerDictionary.TryRemove(ID, out reportViewer))
+            if (reportViewerDictionary.TryRemove(ID ?? _staticKey, out reportViewer))
                 return reportViewer;
             return null;
         }
