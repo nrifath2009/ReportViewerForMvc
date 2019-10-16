@@ -8,4 +8,4 @@
 
 @Html.ReportViewer(
     ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer, 
-    new { scrolling = "no" })
+    new { scrolling = "no" , DynamicID = ViewBag.DynamicID})

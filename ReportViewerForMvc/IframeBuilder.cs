@@ -11,16 +11,16 @@ namespace ReportViewerForMvc
         {
             IDictionary<string, object> parsedHtmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes);
 
-            ReportViewerForMvc.IframeId = GetId(parsedHtmlAttributes);
+            var iframeID = GetId(parsedHtmlAttributes);
 
-            string parsedIframe = CreateIframeTag(parsedHtmlAttributes);
+            string parsedIframe = CreateIframeTag(parsedHtmlAttributes, iframeID);
             parsedIframe += ReceiveMessageScript();
-            parsedIframe += SetIframeIdScript();
+            parsedIframe += SetIframeIdScript(iframeID);
 
             return new HtmlString(parsedIframe);
         }
 
-        private static string GetId(IDictionary<string, object> htmlAttributes)
+        public static string GetId(IDictionary<string, object> htmlAttributes)
         {
             string id;
 
@@ -41,31 +41,29 @@ namespace ReportViewerForMvc
             return id;
         }
 
-        private static string CreateIframeTag(IDictionary<string, object> htmlAttributes)
+        public static string CreateIframeTag(IDictionary<string, object> htmlAttributes, string iframeID)
         {
             string applicationPath = (HttpContext.Current.Request.ApplicationPath == "/") ? "" : HttpContext.Current.Request.ApplicationPath;
 
             TagBuilder tagBuilder = new TagBuilder("iframe");
-            tagBuilder.GenerateId(ReportViewerForMvc.IframeId);
-            tagBuilder.MergeAttribute("src", applicationPath +"/ReportViewerWebForm.aspx");
+            tagBuilder.GenerateId(iframeID);
+            tagBuilder.MergeAttribute("src", applicationPath +"/ReportViewerWebForm.aspx?DynamicID=" + htmlAttributes["DynamicID"]);
             tagBuilder.MergeAttributes(htmlAttributes, false);
             tagBuilder.SetInnerText("iframes not supported.");
 
             return tagBuilder.ToString();
         }
 
-        private static string ReceiveMessageScript()
+        public static string ReceiveMessageScript()
         {
             string script = "<script src=\"" + WebResourceHelper.GetWebResourceUrl(typeof(ReportViewerForMvc), "ReportViewerForMvc.Scripts.ReceiveMessage.js") + "\"></script>";
 
             return script;
         }
 
-        private static string SetIframeIdScript()
+        public static string SetIframeIdScript(string iframeID)
         {
-            string script = "<script>ReportViewerForMvc.setIframeId('" + ReportViewerForMvc.IframeId + "');</script>";
-
-            return script;
+            return "<script>ReportViewerForMvc.setIframeId('" + iframeID + "');</script>";
         }
     }
 }

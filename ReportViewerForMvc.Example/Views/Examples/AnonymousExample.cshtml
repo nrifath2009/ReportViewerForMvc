@@ -24,7 +24,8 @@
         ProcessingMode = 0, //ProcessingMode.Local
         SizeToReportContent = true,
         Width = Unit.Percentage(100),
-        Height = Unit.Percentage(100)
+        Height = Unit.Percentage(100),
+
     },
     new
     {
@@ -39,4 +40,7 @@
         Name = "dsLocalReport",
         Value = dataList
     },
-    null)
+    new
+    {
+        DynamicID = Guid.NewGuid().ToString()
+    })

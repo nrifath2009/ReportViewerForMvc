@@ -7,6 +7,6 @@
 
 <h2>Local report example</h2>
 
-@Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer)
+@Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer, new {DynamicID = ViewBag.DynamicID})
 
 
